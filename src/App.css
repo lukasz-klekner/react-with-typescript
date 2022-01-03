@@ -1,3 +1,7 @@
+.App {
+  text-align: center;
+}
+
 .List {
   list-style: none;
   display: flex;
