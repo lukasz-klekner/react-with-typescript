@@ -23,7 +23,7 @@ function App() {
     {
       name: 'Kobe Bryant',
       age: 42,
-      url: 'https://fullpresscoverage.com/wp-content/uploads/2020/01/101524695-457220551.jpg',
+      url: 'https://img.wprost.pl/img/kobe-bryant/b1/76/7fb1d3ca6621177b39381765b066.jpeg',
     },
   ])
 

@@ -6,13 +6,14 @@ interface IProps {
   setPeople: React.Dispatch<React.SetStateAction<Props['people']>>
 }
 
+const initalState = {
+  name: '',
+  url: '',
+  age: '',
+  note: '',
+}
 const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
-  const [input, setInput] = useState({
-    name: '',
-    url: '',
-    age: '',
-    note: '',
-  })
+  const [input, setInput] = useState(initalState)
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,12 +37,7 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
       },
     ])
 
-    setInput({
-      name: '',
-      url: '',
-      age: '',
-      note: '',
-    })
+    setInput(initalState)
   }
   return (
     <div className='AddToList'>
