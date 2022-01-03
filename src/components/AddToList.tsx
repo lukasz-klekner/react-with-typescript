@@ -1,13 +1,9 @@
 import { useState } from 'react'
+import { IState as Props } from '../App'
 
 interface IProps {
-  people: {
-    name: string
-    url: string
-    age: number
-    note?: string
-  }[]
-  setPeople: React.Dispatch<React.SetStateAction<IProps['people']>>
+  people: Props['people']
+  setPeople: React.Dispatch<React.SetStateAction<Props['people']>>
 }
 
 const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
