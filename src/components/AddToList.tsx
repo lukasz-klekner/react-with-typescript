@@ -1,6 +1,16 @@
 import { useState } from 'react'
 
-const AddToList = () => {
+interface IProps {
+  people: {
+    name: string
+    url: string
+    age: number
+    note?: string
+  }[]
+  setPeople: React.Dispatch<React.SetStateAction<IProps['people']>>
+}
+
+const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
   const [input, setInput] = useState({
     name: '',
     url: '',
@@ -14,6 +24,27 @@ const AddToList = () => {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
+    })
+  }
+
+  const handleClick = () => {
+    if (!input.age || !input.name || !input.url) return
+
+    setPeople([
+      ...people,
+      {
+        name: input.name,
+        url: input.url,
+        age: parseInt(input.age),
+        note: input.note,
+      },
+    ])
+
+    setInput({
+      name: '',
+      url: '',
+      age: '',
+      note: '',
     })
   }
   return (
@@ -49,6 +80,9 @@ const AddToList = () => {
         onChange={handleChange}
         value={input.note}
       />
+      <button className='AddToList-button' onClick={handleClick}>
+        Add to list
+      </button>
     </div>
   )
 }
